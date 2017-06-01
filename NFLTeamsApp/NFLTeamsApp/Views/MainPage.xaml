@@ -1,11 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:NFLTeamsApp.Controls;assembly:NFLTeamsApp"
              xmlns:local="clr-namespace:NFLTeamsApp"
-             x:Class="NFLTeamsApp.Views.MainPage">
+             x:Class="NFLTeamsApp.Views.MainPage"
+             Title="NFL Teams App">
 
-	<Label Text="Welcome to Xamarin Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Buscar" Priority="0" Order="Secondary"/>
+        <ToolbarItem Text="Sobre" Priority="1" Order="Secondary" Command="{Binding AboutCommand}"/>
+    </ContentPage.ToolbarItems>
 
+    <StackLayout>
+        <controls:MyListView
+            ItemTappedCommand="{Binding ShowTeamCommand}"
+            ItemsSource="{Binding Teams}"
+            HasUnevenRows="True">
+
+            <controls:MyListView.Header>
+                <StackLayout>
+                    <Label Text="Teams" TextColor="{StaticResource colorGray}" Margin="20, 10, 10, 10"/>
+                </StackLayout>
+            </controls:MyListView.Header>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="20" BackgroundColor="{StaticResource colorWhite}">
+                            <Label Text="{Binding Name}" TextColor="{StaticResource colorBlack}" Font="{StaticResource fontLarge}"/>
+                            <Label Text="{Binding Conference}" TextColor="{StaticResource colorGray}" Font="{StaticResource fontMedium}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
+        </controls:MyListView>
+    </StackLayout>
+    
 </ContentPage>

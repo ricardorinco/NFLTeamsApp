@@ -5,6 +5,7 @@ namespace NFLTeamsApp.Models
     [DataTable("NFLTeams")]
     public class Team
     {
+        public string Id { get; set; }
         public string Conference { get; set; }
         public string Position { get; set; }
         public string City { get; set; }
