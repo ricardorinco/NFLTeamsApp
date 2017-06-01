@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace NFLTeamsApp
+namespace NFLTeamsApp.Views
 {
     public partial class MainPage : ContentPage
     {
