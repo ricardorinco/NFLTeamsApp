@@ -35,7 +35,7 @@ namespace NFLTeamsApp.ViewModels
             var viewModelType = typeof(TViewModel);
             var viewModelTypeName = viewModelType.Name;
             var viewModelWordLength = "ViewModel".Length;
-            var viewTypeName = $"NFLTeamsApp.{viewModelTypeName.Substring(0, viewModelTypeName.Length - viewModelWordLength)}Page";
+            var viewTypeName = $"NFLTeamsApp.Views.{viewModelTypeName.Substring(0, viewModelTypeName.Length - viewModelWordLength)}Page";
             var viewType = Type.GetType(viewTypeName);
 
             var page = Activator.CreateInstance(viewType) as Page;

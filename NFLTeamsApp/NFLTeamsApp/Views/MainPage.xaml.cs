@@ -6,7 +6,7 @@ namespace NFLTeamsApp.Views
 {
     public partial class MainPage : ContentPage
     {
-        private MainViewModel ViewModel => BindingContext as MainViewModel;
+        private MainViewModel mainViewModel => BindingContext as MainViewModel;
 
         public MainPage()
         {
@@ -20,8 +20,8 @@ namespace NFLTeamsApp.Views
         {
             base.OnAppearing();
 
-            if (ViewModel != null)
-                await ViewModel.LoadAsync();
+            if (mainViewModel != null)
+                await mainViewModel.LoadAsync();
         }
     }
 }

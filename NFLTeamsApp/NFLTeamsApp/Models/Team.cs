@@ -10,11 +10,14 @@ namespace NFLTeamsApp.Models
         public string Position { get; set; }
         public string City { get; set; }
         public string Name { get; set; }
+        public string CompleteTeamName { get { return $"{City} {Name}"; } }
+        public string Tag { get; set; }
         public string Founded { get; set; }
         public string Stadium { get; set; }
-        public string Tag { get; set; }
         public string Logo { get; set; }
-        public string Gloss { get; set; }
+        public string Matte { get; set; }
+        public string Helmet { get; set; }
+        public string BackgroundColor { get; set; }
 
         [Version]
         public string AzureVersion { get; set; }

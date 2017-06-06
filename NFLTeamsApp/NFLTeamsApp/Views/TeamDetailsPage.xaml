@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NFLTeamsApp.Views.TeamDetailsPage"
+             Title="{Binding Name}">
+
+    <ScrollView Padding="10" BackgroundColor="{Binding BackgroundColor}">
+        <StackLayout Spacing="10">
+            <Image Source="{Binding Logo}"/>
+            <Label Text="{Binding CompleteTeamName}" Font="{StaticResource ExtraLarge}" TextColor="{StaticResource White}" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+            
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Label Text="Conference:" TextColor="{StaticResource LightGray}" FontAttributes="Bold"/>
+                <Label Text="{Binding Conference}" TextColor="{StaticResource White}"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Label Text="Rank Position:" TextColor="{StaticResource LightGray}" FontAttributes="Bold"/>
+                <Label Text="{Binding Position}" TextColor="{StaticResource White}"/>
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Label Text="City:" TextColor="{StaticResource LightGray}" FontAttributes="Bold"/>
+                <Label Text="{Binding City}" TextColor="{StaticResource White}"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Label Text="Name:" TextColor="{StaticResource LightGray}" FontAttributes="Bold"/>
+                <Label Text="{Binding Name}" TextColor="{StaticResource White}"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Label Text="Tag:" TextColor="{StaticResource LightGray}" FontAttributes="Bold"/>
+                <Label Text="{Binding Tag}" TextColor="{StaticResource White}"/>
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Label Text="Foundation Year:" TextColor="{StaticResource LightGray}" FontAttributes="Bold"/>
+                <Label Text="{Binding Founded}" TextColor="{StaticResource White}"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Label Text="Stadium:" TextColor="{StaticResource LightGray}" FontAttributes="Bold"/>
+                <Label Text="{Binding Stadium}" TextColor="{StaticResource White}"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Label Text="Helmet:" TextColor="{StaticResource LightGray}" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                <Image Source="{Binding Helmet}"/>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -5,12 +5,15 @@
     <Application.Resources>
 
         <ResourceDictionary>
-            <Font x:Key="fontLarge">Large</Font>
-            <Font x:Key="fontMedium">Medium</Font> "
+            <Font x:Key="ExtraLarge">26</Font>
+            <Font x:Key="Large">Large</Font>
+            <Font x:Key="Medium">Medium</Font>
+            <Font x:Key="Small">Small</Font>
 
-            <Color x:Key="colorBlack">Black</Color>
-            <Color x:Key="colorGray">Gray</Color>
-            <Color x:Key="colorWhite">White</Color>
+            <Color x:Key="Black">#000000</Color>
+            <Color x:Key="Gray">#888888</Color>
+            <Color x:Key="LightGray">#EEEEEE</Color>
+            <Color x:Key="White">#FFFFFF</Color>
         </ResourceDictionary>
 
     </Application.Resources>
