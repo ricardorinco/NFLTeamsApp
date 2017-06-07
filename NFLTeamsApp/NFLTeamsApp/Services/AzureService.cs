@@ -6,13 +6,13 @@ namespace NFLTeamsApp.Services
 {
     public class AzureService<T>
     {
-        IMobileServiceClient Client;
-        IMobileServiceTable<T> Table;
+        static readonly string AppUrl = "http://nflteamsapp.azurewebsites.net";
+        public MobileServiceClient Client { get; set; } = null;
+        public IMobileServiceTable<T> Table;
 
         public AzureService()
         {
-            string urlNFLTeamApp = "http://nflteamsapp.azurewebsites.net";
-            Client = new MobileServiceClient(urlNFLTeamApp);
+            Client = new MobileServiceClient(AppUrl);
             Table = Client.GetTable<T>();
         }
 

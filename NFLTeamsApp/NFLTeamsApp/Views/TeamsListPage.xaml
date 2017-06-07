@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ext="clr-namespace:XFCustomControls.Ext;assembly=XFCustomControls.Ext"
+             xmlns:local="clr-namespace:NFLTeamsApp"
+             x:Class="NFLTeamsApp.Views.TeamsListPage"
+             Title="Teams">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="User Logged" Priority="0" Order="Secondary" Command="{Binding UserLoggedCommand}"/>
+        <ToolbarItem Text="About" Priority="1" Order="Secondary" Command="{Binding AboutCommand}"/>
+    </ContentPage.ToolbarItems>
+    
+    <StackLayout>
+        <ext:ListView ItemsSource="{Binding Teams}"
+            ItemTappedCommand="{Binding ShowTeamDetailsCommand}">
+
+            <ext:ListView.Header>
+                <StackLayout>
+                    <Label Text="Teams" TextColor="{StaticResource Gray}" Margin="20, 10, 10, 10"/>
+                </StackLayout>
+            </ext:ListView.Header>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10" Spacing="10">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <Image Source="{Binding Matte}"/>
+                                <StackLayout Spacing="-2">
+                                    <Label Text="{Binding CompleteTeamName}" TextColor="{StaticResource Gray}" Font="{StaticResource Medium}" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Conference}" TextColor="{StaticResource Gray}" Font="{StaticResource Small}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ext:ListView>
+    </StackLayout>
+
+</ContentPage>

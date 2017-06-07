@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NFLTeamsApp.Services
+namespace NFLTeamsApp.Services.Interfaces
 {
     public interface INFLTeamsTableService
     {

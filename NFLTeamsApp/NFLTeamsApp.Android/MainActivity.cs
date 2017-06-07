@@ -7,7 +7,7 @@ using System;
 
 namespace NFLTeamsApp.Droid
 {
-    [Activity(Label = "NFLTeamsApp", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Theme = "@style/MainTheme", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         static MainActivity instance = null;
@@ -23,6 +23,9 @@ namespace NFLTeamsApp.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+
+            Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
+
             LoadApplication(new Views.App());
 
             try

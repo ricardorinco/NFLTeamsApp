@@ -1,44 +1,58 @@
-﻿using NFLTeamsApp.Models;
+﻿using NFLTeamsApp.Helpers;
 using NFLTeamsApp.Services;
+using NFLTeamsApp.Views;
+using System.Linq;
 using System.Threading.Tasks;
-using System.Collections.ObjectModel;
+using System.Windows.Input;
 using Xamarin.Forms;
 
+[assembly: Xamarin.Forms.Dependency(typeof(LoginAzureService))]
 namespace NFLTeamsApp.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
-        private readonly INFLTeamsTableService nflTeamsTableService;
-        public ObservableCollection<Team> Teams { get; }
+        private LoginAzureService loginAzureService;
+        INavigation navigation;
 
-        public Command AboutCommand { get; }
-        public Command<Team> ShowTeamDetailsCommand { get; }
+        ICommand loginCommand;
+        public ICommand LoginCommand =>
+            loginCommand ?? (loginCommand = new Command(async async => await ExecuteLoginCommandAsync()));
 
-        public MainViewModel(INFLTeamsTableService nflTeamsTableService)
+        public MainViewModel(INavigation navigation)
         {
-            this.nflTeamsTableService = nflTeamsTableService;
-            Teams = new ObservableCollection<Team>();
-
-            AboutCommand = new Command(ExecuteAboutCommand);
-            ShowTeamDetailsCommand = new Command<Team>(ExecuteTeamDetailsCommand);
+            loginAzureService = DependencyService.Get<LoginAzureService>();
+            this.navigation = navigation;
         }
 
-        private async void ExecuteAboutCommand()
+        private async Task ExecuteLoginCommandAsync()
         {
-            await PushAsync<AboutViewModel>();
-        }
-        private async void ExecuteTeamDetailsCommand(Team team)
-        {
-            await PushAsync<TeamDetailsViewModel>(team);
+            if (!await LoginAsync())
+                return;
+            else
+            {
+                var teamsListPage = new TeamsListPage();
+                await navigation.PushAsync(teamsListPage);
+
+                RemovePageFromStack();
+            }
         }
 
-        public async Task LoadAsync()
+        private void RemovePageFromStack()
         {
-            var teams = await nflTeamsTableService.GetTeamsAsync();
+            var existingPages = navigation.NavigationStack.ToList();
+            foreach (var page in existingPages)
+            {
+                if (page.GetType() == typeof(MainPage))
+                    navigation.RemovePage(page);
+            }
+        }
 
-            Teams.Clear();
-            foreach (var team in teams)
-                Teams.Add(team);
+        public Task<bool> LoginAsync()
+        {
+            if (Settings.IsLoaggedIn)
+                return Task.FromResult(true);
+
+            return loginAzureService.LoginAsync();
         }
     }
 }

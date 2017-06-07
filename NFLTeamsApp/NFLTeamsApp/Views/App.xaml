@@ -10,10 +10,12 @@
             <Font x:Key="Medium">Medium</Font>
             <Font x:Key="Small">Small</Font>
 
+            <Color x:Key="Primary">#003b73</Color>
             <Color x:Key="Black">#000000</Color>
             <Color x:Key="Gray">#888888</Color>
             <Color x:Key="LightGray">#EEEEEE</Color>
             <Color x:Key="White">#FFFFFF</Color>
+            <Color x:Key="Facebook">#3B5998</Color>
         </ResourceDictionary>
 
     </Application.Resources>
