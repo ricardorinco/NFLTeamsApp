@@ -15,3 +15,5 @@ Application developed for Maratona Xamarin - Intermediária.
 
 ### Trademarks
 NFL and the NFL shield design are registered trademarks of the National Football League.The team names, logos and uniform designs are registered trademarks of the teams indicated. All other NFL-related trademarks are trademarks of the National Football League.
+
+> **2 Coríntios 1:21:** "Mas o que nos confirma convosco em Cristo, e o que nos ungiu, é Deus"
