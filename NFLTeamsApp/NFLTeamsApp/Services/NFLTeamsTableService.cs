@@ -13,8 +13,8 @@ namespace NFLTeamsApp.Services
     {
         public async Task<List<Team>> GetTeamsAsync()
         {
-            var service = new AzureService<Team>();
-            var items = await service.GetTable();
+            var easyTableAzureService = new EasyTableAzureService<Team>();
+            var items = await easyTableAzureService.GetTable();
 
             return items.ToList();
         }

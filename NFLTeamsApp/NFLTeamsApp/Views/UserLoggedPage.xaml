@@ -9,20 +9,15 @@
                      HorizontalOptions="Center"
                      VerticalOptions="CenterAndExpand">
 
-            <Label Text="User Id:" 
+            <Image Source="{Binding UserAvatar}"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+
+            <Label Text="{Binding UserIdentification}" 
                    TextColor="{StaticResource Black}"
-                   FontAttributes="Bold"/>
-
-            <Label Text="{Binding UserId}" 
-                   TextColor="{StaticResource Black}"/>
-
-            <Label Text="Token Provider:" 
-                   TextColor="{StaticResource Black}"
-                   FontAttributes="Bold"/>
-
-            <Label Text="{Binding Token}" 
-                   TextColor="{StaticResource Black}"/>
-
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+            
         </StackLayout>
     </ScrollView>
 </ContentPage>

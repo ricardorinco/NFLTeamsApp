@@ -11,10 +11,6 @@ namespace NFLTeamsApp.ViewModels
         private readonly INFLTeamsTableService nflTeamsTableService;
         public ObservableCollection<Team> Teams { get; }
 
-        public Command UserLoggedCommand { get; }
-        public Command AboutCommand { get; }
-        public Command<Team> ShowTeamDetailsCommand { get; }
-
         public TeamsListViewModel(INFLTeamsTableService nflTeamsTableService)
         {
             this.nflTeamsTableService = nflTeamsTableService;
@@ -25,14 +21,19 @@ namespace NFLTeamsApp.ViewModels
             ShowTeamDetailsCommand = new Command<Team>(ExecuteTeamDetailsCommand);
         }
 
+        public Command UserLoggedCommand { get; }
         private async void ExecuteUserLoggedCommand()
         {
             await PushAsync<UserLoggedViewModel>();
         }
+
+        public Command AboutCommand { get; }
         private async void ExecuteAboutCommand()
         {
             await PushAsync<AboutViewModel>();
         }
+
+        public Command<Team> ShowTeamDetailsCommand { get; }
         private async void ExecuteTeamDetailsCommand(Team team)
         {
             await PushAsync<TeamDetailsViewModel>(team);

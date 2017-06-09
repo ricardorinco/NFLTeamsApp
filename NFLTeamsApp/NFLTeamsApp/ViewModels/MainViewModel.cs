@@ -49,7 +49,7 @@ namespace NFLTeamsApp.ViewModels
 
         public Task<bool> LoginAsync()
         {
-            if (Settings.IsLoaggedIn)
+            if (Settings.IsLoggedIn)
                 return Task.FromResult(true);
 
             return loginAzureService.LoginAsync();

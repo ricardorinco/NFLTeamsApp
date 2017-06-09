@@ -1,18 +1,18 @@
 ﻿using Microsoft.WindowsAzure.MobileServices;
+using NFLTeamsApp.Helpers;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace NFLTeamsApp.Services
 {
-    public class AzureService<T>
+    public class EasyTableAzureService<T>
     {
-        static readonly string AppUrl = "http://nflteamsapp.azurewebsites.net";
         public MobileServiceClient Client { get; set; } = null;
         public IMobileServiceTable<T> Table;
 
-        public AzureService()
+        public EasyTableAzureService()
         {
-            Client = new MobileServiceClient(AppUrl);
+            Client = new MobileServiceClient(Constants.ApplicationURL);
             Table = Client.GetTable<T>();
         }
 

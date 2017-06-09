@@ -9,7 +9,7 @@ Application developed for Maratona Xamarin - Intermediária.
 - EasyTable
 - MVVM
 
-### UI do Aplicativo
+### App UI - Android
 ![](http://insidecode.com.br/apps/NFLTeamsApp/nflteams_ui_android.png)
 
 

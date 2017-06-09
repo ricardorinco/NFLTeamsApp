@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using NFLTeamsApp.Helpers;
+using Xamarin.Forms;
 
 namespace NFLTeamsApp.Views
 {
@@ -7,7 +8,11 @@ namespace NFLTeamsApp.Views
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new MainPage());
+
+            if (Settings.IsLoggedIn)
+                MainPage = new NavigationPage(new TeamsListPage());
+            else
+                MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()
