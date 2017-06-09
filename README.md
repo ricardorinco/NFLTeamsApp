@@ -1,4 +1,4 @@
-> **Isaías 26:3:** "Tu conservarás em paz aquele cuja mente está firme em ti; porque ele confia em ti."
+> **Isaías 26:3** "Tu conservarás em paz aquele cuja mente está firme em ti; porque ele confia em ti."
 
 # NFL Teams App
 Application developed for Maratona Xamarin - Intermediária.
